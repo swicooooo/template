@@ -37,6 +37,8 @@ private:
     int blocknum_;                      // 文件的块号
 };
 
+// 在当客户端发起文件请求，服务器获取文件节点ip，返回给客户端，
+// 客户端开启新socket发起连接
 class filetransferSender: public filetransfer
 {
 public:
