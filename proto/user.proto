@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package user;
+option cc_generic_services = true; // 生成service服务类和rpc方法
+
+service UserServiceRpc
+{
+    rpc Login (LoginRequest) returns (LoginResponse);
+    rpc GetFileServer (FileTransRequest) returns (FileTransResponse);
+}
+
+message ResultCode
+{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+message FileServer
+{
+    bytes ip = 1;
+    int32 port = 2;
+}
+///////////////////////////Login/////////////////////////////////////////
+message LoginRequest
+{
+    bytes name = 1;
+    bytes pwd = 2;
+    bytes platform = 3;
+}
+message LoginResponse
+{
+    ResultCode result = 1;
+    bool success = 2;
+    bytes platform = 3;
+    bytes token = 4;
+}
+/////////////////////////////FileTrans////////////////////////////////////
+message FileTransRequest
+{
+    bytes fileMD5 = 1;
+    bytes platform = 2;
+    bytes token = 3;
+}
+
+message FileTransResponse
+{
+    ResultCode result = 1;
+    bool success = 2;
+    bytes platform = 3;
+    bytes token = 4;
+    FileServer server = 5;
+}

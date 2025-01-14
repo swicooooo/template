@@ -5,6 +5,17 @@
 #include <vector>
 #include "utils/base64.h"
 
+/**
+ *  CREATE TABLE file (		\
+        name VARCHAR(255) NOT NULL COMMENT "file name",	\
+        path VARCHAR(255) NOT NULL COMMENT "dir path", 		\
+        md5 VARCHAR(32) NOT NULL COMMENT "file encrypt",	\
+        state VARCHAR(1) NOT NULL COMMENT "file state 0: incomplete,1: complete",	\
+        blockno INTEGER NOT NULL COMMENT "the next block",	\
+        PRIMARY KEY (name, path)		\
+    )ENGINE=InnoDB;
+ */
+
 class filetransfer
 {
 public:
@@ -44,7 +55,7 @@ class filetransferSender: public filetransfer
 public:
     filetransferSender() = default;
     ~filetransferSender() = default;
-    void uploadFile(int sockfd, const std::string &path);   // 处理上传文件函数
+    void uploadFile(int sockfd, const std::string &path, const std::string &dir = "./");   // 处理上传文件函数
 private:
     uint64_t getFileSize(const std::string &path);
     void sendBlockByType(const struct UploadFileAck &uploadfileack, int totalblock, const std::string &path);

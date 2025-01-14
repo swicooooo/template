@@ -1,7 +1,7 @@
 #include "file/filetransfer.h"
 
 #include "utils/md5.h"
-
+#include <filesystem>
 
 #include <unistd.h>
 #include <stdint.h>
@@ -65,16 +65,17 @@ int filetransfer::recvPacket(int sockfd, void *buf, int size)
 {
     memset(buf, 0, size);
 
-    char databuf[1024];
+    char databuf[BLOCK_SIZE * 10];
     memset(databuf, 0, sizeof(databuf));
-    int ret = recv(sockfd, (char *)databuf, size, 0);
+    int ret = recv(sockfd, (char *)databuf, sizeof(databuf), 0);
     if (ret > 0)
     {
         nlohmann::json recvjson = nlohmann::json::parse(std::string((char *)databuf, ret));
-        if (recvjson.contains("payload") && recvjson["payload"].contains("data"))
-        {
+        try {
             std::string decodestr = base64_decode(recvjson["payload"]["data"].get<std::string>());
             memcpy(buf, decodestr.data(), size);
+        } catch (const nlohmann::json::parse_error& e) {
+            printf("JSON 解析失败 [文件: %s, 行号: %d]: %s\n", __FILE__, __LINE__, e.what());
         }
     }
     return ret;
@@ -82,7 +83,7 @@ int filetransfer::recvPacket(int sockfd, void *buf, int size)
 
 filetransferReceiver::filetransferReceiver()
 {
-    mysql_ = new MySQL("file");    // 在堆上创建指针
+    mysql_ = new MySQL("db_file");    // 在堆上创建指针
 }
 
 filetransferReceiver::~filetransferReceiver()
@@ -107,7 +108,7 @@ void filetransferReceiver::processUpload(int clientfd, struct DataPacket *dp)
 
     // 判定文件路径是否合法
     filePath_ = uploadFile.filepath;
-    int idx = filePath_.find_last_of("/");;
+    int idx = filePath_.find_last_of("/");
     if(idx == std::string::npos)
     {
         std::string response = "illegal file path!" + filePath_;
@@ -213,9 +214,10 @@ bool filetransferReceiver::instructClientSendBlock(int clientfd, const std::vect
 void filetransferReceiver::recvClientSendBlock(uint64_t &recvsize)
 {
     // 根据文件是否有内容改变打开方式,fixbug: 多进程打开文件or多线程
-    int filefd = access(name_.c_str(), F_OK)==0?
-                     open(name_.c_str(), O_APPEND | O_RDWR):
-                     open(name_.c_str(), O_CREAT | O_RDWR);
+    
+    int filefd = access(filePath_.c_str(), F_OK)==0?
+                     open(filePath_.c_str(), O_APPEND | O_RDWR):
+                     open(filePath_.c_str(), O_CREAT | O_RDWR);
     CheckErr(filefd, "open err");
 
     // 开始循环接收DataPacket(附带TransferFile长度)
@@ -244,6 +246,22 @@ void filetransferReceiver::recvClientSendBlock(uint64_t &recvsize)
         printf("write fd recvsize: %ld, filesize: %ld\n", recvsize, filesize_);
     }
     close(filefd);
+    if(recvsize == filesize_)
+    {
+        size_t dot_pos = filePath_.rfind('.');
+        if (dot_pos != std::string::npos && filePath_.substr(dot_pos) == ".tmp") {
+            std::string new_filePath = filePath_.substr(0, dot_pos); 
+
+            std::filesystem::path old_file_path = filePath_;
+            std::filesystem::path new_file_path = new_filePath;
+
+            if (std::filesystem::exists(old_file_path)) {
+                std::filesystem::rename(old_file_path, new_file_path);
+                std::cout << "File renamed: " << filePath_ << " -> " << new_filePath << std::endl;
+            } else 
+                std::cerr << "Error: File " << filePath_ << " does not exist." << std::endl;
+        }
+    }
 }
 
 void filetransferReceiver::updateFileState(uint64_t &recvsize, const std::vector<std::string> &vec)
@@ -299,7 +317,7 @@ void filetransferReceiver::updateFileState(uint64_t &recvsize, const std::vector
     }
 }
 
-void filetransferSender::uploadFile(int sockfd, const std::string &path)
+void filetransferSender::uploadFile(int sockfd, const std::string &path, const std::string &dir)
 {
     printf("uploadFile start...!\n");
     sockfd_ = sockfd;
@@ -317,8 +335,13 @@ void filetransferSender::uploadFile(int sockfd, const std::string &path)
     printf("filesize: %ld, totalblock: %d, md5: %s!\n", filesize, totalblock, md5.c_str());
 
     // 发送上传文件的请求
+    std::string loadpath = path;
+    int idx = path.find_last_of("/");
+    if(idx == std::string::npos)
+        loadpath = dir + path.substr(idx+1);
+
     struct UploadFile uploadfile;
-    strcpy(uploadfile.filepath, path.c_str());
+    strcpy(uploadfile.filepath, loadpath.c_str());
     uploadfile.filesize = filesize;
     memcpy(uploadfile.md5, md5.c_str(), md5.length());
     ret_ = sendPacket(sockfd, TYPE_UPLOAD, (void*)&uploadfile, sizeof(struct UploadFile));
@@ -327,8 +350,8 @@ void filetransferSender::uploadFile(int sockfd, const std::string &path)
     printf("sendPacket request upload success!\n");
 
     // 解析服务端传回的ack类型
-    char buf[1024] = {0};
-    ret_ = recvPacket(sockfd, buf, 1024);
+    char buf[1024 * 10] = {0};
+    ret_ = recvPacket(sockfd, buf, 1024 * 10);
     CheckErr(ret_, "RecvPacket err");
     struct DataPacket *dp = (DataPacket*)buf;
     struct UploadFileAck uploadfileack;
@@ -388,8 +411,8 @@ void filetransferSender::sendBlockByType(const struct UploadFileAck &uploadfilea
         close(filefd);
 
         // 文件传输结束，检验md5是否正确
-        char buf[1024] = {0};
-        ret_ = recvPacket(sockfd_, buf, 1024);
+        char buf[1024 * 10] = {0};
+        ret_ = recvPacket(sockfd_, buf, 1024 * 10);
         CheckErr(ret_, "RecvPacket err");
         DataPacket *dp = (DataPacket*)buf;
         TransferFileAck transferFileAck;

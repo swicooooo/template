@@ -22,5 +22,11 @@ int main(int argc, char **argv)
 }
 /**
 telnet 192.168.1.35 10086
-{"event": "login"}
+{"event": "login", "payload": {"name": "zhangsan", "pwd": "0", "platform": "myplatform"}}
+
+// mysql
+mysql -u sw -h 192.168.1.35 -p
+use db_file;
+SELECT * FROM file;
+DELETE FROM file;
  */

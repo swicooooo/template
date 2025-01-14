@@ -3,14 +3,15 @@
 namespace EnMsgType
 {
 static std::string LOGIN_MSG  = "login";
-static std::string FILE_TRANSFER = "file_transfer";
+static std::string LOGIN_ACK_MSG  = "login_ack";
+static std::string FILE_SERVER = "file_server";
 }
 
 
 static const int BLOCK_SIZE = 2048;
 enum OperType
 {
-    TYPE_DOWNLOAD = 1,
+    TYPE_DOWNLOAD = 100,
     TYPE_UPLOAD,
     TYPE_ACK,
     TYPE_AUTH,
