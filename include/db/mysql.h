@@ -7,7 +7,7 @@
 class MySQL
 {
 public:
-    MySQL(std::string dbname, std::string server = "192.168.1.35", std::string user = "sw", std::string password = "0");
+    MySQL(std::string dbname, std::string server = "192.168.77.39", std::string user = "sw", std::string password = "0");
     ~MySQL();
     bool connect();
     bool update(std::string sql);

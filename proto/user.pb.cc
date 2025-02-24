@@ -44,6 +44,16 @@ class LoginResponseDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<LoginResponse>
       _instance;
 } _LoginResponse_default_instance_;
+class CreateBucketRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<CreateBucketRequest>
+      _instance;
+} _CreateBucketRequest_default_instance_;
+class CreateBucketResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<CreateBucketResponse>
+      _instance;
+} _CreateBucketResponse_default_instance_;
 class FileTransRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<FileTransRequest>
@@ -113,6 +123,35 @@ static void InitDefaultsLoginResponse() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsLoginResponse}, {
       &protobuf_user_2eproto::scc_info_ResultCode.base,}};
 
+static void InitDefaultsCreateBucketRequest() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::user::_CreateBucketRequest_default_instance_;
+    new (ptr) ::user::CreateBucketRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::user::CreateBucketRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_CreateBucketRequest =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsCreateBucketRequest}, {}};
+
+static void InitDefaultsCreateBucketResponse() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::user::_CreateBucketResponse_default_instance_;
+    new (ptr) ::user::CreateBucketResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::user::CreateBucketResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_CreateBucketResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsCreateBucketResponse}, {
+      &protobuf_user_2eproto::scc_info_ResultCode.base,}};
+
 static void InitDefaultsFileTransRequest() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -148,11 +187,13 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_FileServer.base);
   ::google::protobuf::internal::InitSCC(&scc_info_LoginRequest.base);
   ::google::protobuf::internal::InitSCC(&scc_info_LoginResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_CreateBucketRequest.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_CreateBucketResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_FileTransRequest.base);
   ::google::protobuf::internal::InitSCC(&scc_info_FileTransResponse.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[6];
+::google::protobuf::Metadata file_level_metadata[8];
 const ::google::protobuf::ServiceDescriptor* file_level_service_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -187,12 +228,31 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::LoginResponse, success_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::LoginResponse, platform_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::LoginResponse, token_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::LoginResponse, buckets_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketRequest, bucketname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketRequest, location_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketRequest, lastmodified_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketRequest, platform_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketRequest, token_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketResponse, result_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketResponse, success_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketResponse, platform_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::CreateBucketResponse, token_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::FileTransRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::FileTransRequest, filemd5_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::FileTransRequest, platform_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::user::FileTransRequest, token_),
   ~0u,  // no _has_bits_
@@ -211,8 +271,10 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 7, -1, sizeof(::user::FileServer)},
   { 14, -1, sizeof(::user::LoginRequest)},
   { 22, -1, sizeof(::user::LoginResponse)},
-  { 31, -1, sizeof(::user::FileTransRequest)},
-  { 39, -1, sizeof(::user::FileTransResponse)},
+  { 32, -1, sizeof(::user::CreateBucketRequest)},
+  { 42, -1, sizeof(::user::CreateBucketResponse)},
+  { 51, -1, sizeof(::user::FileTransRequest)},
+  { 58, -1, sizeof(::user::FileTransResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -220,6 +282,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::user::_FileServer_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::user::_LoginRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::user::_LoginResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::user::_CreateBucketRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::user::_CreateBucketResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::user::_FileTransRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::user::_FileTransResponse_default_instance_),
 };
@@ -239,7 +303,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 6);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 8);
 }
 
 void AddDescriptorsImpl() {
@@ -249,21 +313,28 @@ void AddDescriptorsImpl() {
       "ode\030\001 \001(\005\022\016\n\006errmsg\030\002 \001(\014\"&\n\nFileServer\022"
       "\n\n\002ip\030\001 \001(\014\022\014\n\004port\030\002 \001(\005\";\n\014LoginReques"
       "t\022\014\n\004name\030\001 \001(\014\022\013\n\003pwd\030\002 \001(\014\022\020\n\010platform"
-      "\030\003 \001(\014\"c\n\rLoginResponse\022 \n\006result\030\001 \001(\0132"
+      "\030\003 \001(\014\"t\n\rLoginResponse\022 \n\006result\030\001 \001(\0132"
       "\020.user.ResultCode\022\017\n\007success\030\002 \001(\010\022\020\n\010pl"
-      "atform\030\003 \001(\014\022\r\n\005token\030\004 \001(\014\"D\n\020FileTrans"
-      "Request\022\017\n\007fileMD5\030\001 \001(\014\022\020\n\010platform\030\002 \001"
-      "(\014\022\r\n\005token\030\003 \001(\014\"\211\001\n\021FileTransResponse\022"
-      " \n\006result\030\001 \001(\0132\020.user.ResultCode\022\017\n\007suc"
-      "cess\030\002 \001(\010\022\020\n\010platform\030\003 \001(\014\022\r\n\005token\030\004 "
-      "\001(\014\022 \n\006server\030\005 \001(\0132\020.user.FileServer2\204\001"
-      "\n\016UserServiceRpc\0220\n\005Login\022\022.user.LoginRe"
-      "quest\032\023.user.LoginResponse\022@\n\rGetFileSer"
-      "ver\022\026.user.FileTransRequest\032\027.user.FileT"
-      "ransResponseB\003\200\001\001b\006proto3"
+      "atform\030\003 \001(\014\022\r\n\005token\030\004 \001(\014\022\017\n\007buckets\030\005"
+      " \001(\014\"r\n\023CreateBucketRequest\022\022\n\nbucketnam"
+      "e\030\001 \001(\014\022\020\n\010location\030\002 \001(\014\022\024\n\014lastmodifie"
+      "d\030\003 \001(\014\022\020\n\010platform\030\004 \001(\014\022\r\n\005token\030\005 \001(\014"
+      "\"j\n\024CreateBucketResponse\022 \n\006result\030\001 \001(\013"
+      "2\020.user.ResultCode\022\017\n\007success\030\002 \001(\010\022\020\n\010p"
+      "latform\030\003 \001(\014\022\r\n\005token\030\004 \001(\014\"3\n\020FileTran"
+      "sRequest\022\020\n\010platform\030\001 \001(\014\022\r\n\005token\030\002 \001("
+      "\014\"\211\001\n\021FileTransResponse\022 \n\006result\030\001 \001(\0132"
+      "\020.user.ResultCode\022\017\n\007success\030\002 \001(\010\022\020\n\010pl"
+      "atform\030\003 \001(\014\022\r\n\005token\030\004 \001(\014\022 \n\006server\030\005 "
+      "\001(\0132\020.user.FileServer2\313\001\n\016UserServiceRpc"
+      "\0220\n\005Login\022\022.user.LoginRequest\032\023.user.Log"
+      "inResponse\022E\n\014CreateBucket\022\031.user.Create"
+      "BucketRequest\032\032.user.CreateBucketRespons"
+      "e\022@\n\rGetFileServer\022\026.user.FileTransReque"
+      "st\032\027.user.FileTransResponseB\003\200\001\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 625);
+      descriptor, 920);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "user.proto", &protobuf_RegisterTypes);
 }
@@ -1152,6 +1223,7 @@ const int LoginResponse::kResultFieldNumber;
 const int LoginResponse::kSuccessFieldNumber;
 const int LoginResponse::kPlatformFieldNumber;
 const int LoginResponse::kTokenFieldNumber;
+const int LoginResponse::kBucketsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 LoginResponse::LoginResponse()
@@ -1173,6 +1245,10 @@ LoginResponse::LoginResponse(const LoginResponse& from)
   if (from.token().size() > 0) {
     token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.token_);
   }
+  buckets_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.buckets().size() > 0) {
+    buckets_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.buckets_);
+  }
   if (from.has_result()) {
     result_ = new ::user::ResultCode(*from.result_);
   } else {
@@ -1185,6 +1261,7 @@ LoginResponse::LoginResponse(const LoginResponse& from)
 void LoginResponse::SharedCtor() {
   platform_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  buckets_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&result_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&success_) -
       reinterpret_cast<char*>(&result_)) + sizeof(success_));
@@ -1198,6 +1275,7 @@ LoginResponse::~LoginResponse() {
 void LoginResponse::SharedDtor() {
   platform_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  buckets_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete result_;
 }
 
@@ -1223,6 +1301,7 @@ void LoginResponse::Clear() {
 
   platform_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  buckets_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && result_ != NULL) {
     delete result_;
   }
@@ -1291,6 +1370,18 @@ bool LoginResponse::MergePartialFromCodedStream(
         break;
       }
 
+      // bytes buckets = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_buckets()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1340,6 +1431,12 @@ void LoginResponse::SerializeWithCachedSizes(
       4, this->token(), output);
   }
 
+  // bytes buckets = 5;
+  if (this->buckets().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      5, this->buckets(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -1380,6 +1477,13 @@ void LoginResponse::SerializeWithCachedSizes(
         4, this->token(), target);
   }
 
+  // bytes buckets = 5;
+  if (this->buckets().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        5, this->buckets(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -1409,6 +1513,13 @@ size_t LoginResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->token());
+  }
+
+  // bytes buckets = 5;
+  if (this->buckets().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->buckets());
   }
 
   // .user.ResultCode result = 1;
@@ -1458,6 +1569,10 @@ void LoginResponse::MergeFrom(const LoginResponse& from) {
 
     token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.token_);
   }
+  if (from.buckets().size() > 0) {
+
+    buckets_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.buckets_);
+  }
   if (from.has_result()) {
     mutable_result()->::user::ResultCode::MergeFrom(from.result());
   }
@@ -1494,6 +1609,8 @@ void LoginResponse::InternalSwap(LoginResponse* other) {
     GetArenaNoVirtual());
   token_.Swap(&other->token_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  buckets_.Swap(&other->buckets_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(result_, other->result_);
   swap(success_, other->success_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -1507,10 +1624,787 @@ void LoginResponse::InternalSwap(LoginResponse* other) {
 
 // ===================================================================
 
+void CreateBucketRequest::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CreateBucketRequest::kBucketnameFieldNumber;
+const int CreateBucketRequest::kLocationFieldNumber;
+const int CreateBucketRequest::kLastmodifiedFieldNumber;
+const int CreateBucketRequest::kPlatformFieldNumber;
+const int CreateBucketRequest::kTokenFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CreateBucketRequest::CreateBucketRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_user_2eproto::scc_info_CreateBucketRequest.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:user.CreateBucketRequest)
+}
+CreateBucketRequest::CreateBucketRequest(const CreateBucketRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  bucketname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.bucketname().size() > 0) {
+    bucketname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bucketname_);
+  }
+  location_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.location().size() > 0) {
+    location_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.location_);
+  }
+  lastmodified_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.lastmodified().size() > 0) {
+    lastmodified_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.lastmodified_);
+  }
+  platform_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.platform().size() > 0) {
+    platform_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.platform_);
+  }
+  token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.token().size() > 0) {
+    token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.token_);
+  }
+  // @@protoc_insertion_point(copy_constructor:user.CreateBucketRequest)
+}
+
+void CreateBucketRequest::SharedCtor() {
+  bucketname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  location_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  lastmodified_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  platform_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+CreateBucketRequest::~CreateBucketRequest() {
+  // @@protoc_insertion_point(destructor:user.CreateBucketRequest)
+  SharedDtor();
+}
+
+void CreateBucketRequest::SharedDtor() {
+  bucketname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  location_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  lastmodified_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  platform_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void CreateBucketRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* CreateBucketRequest::descriptor() {
+  ::protobuf_user_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_user_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const CreateBucketRequest& CreateBucketRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_user_2eproto::scc_info_CreateBucketRequest.base);
+  return *internal_default_instance();
+}
+
+
+void CreateBucketRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:user.CreateBucketRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  bucketname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  location_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  lastmodified_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  platform_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+bool CreateBucketRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:user.CreateBucketRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // bytes bucketname = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_bucketname()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes location = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_location()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes lastmodified = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_lastmodified()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes platform = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_platform()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes token = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_token()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:user.CreateBucketRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:user.CreateBucketRequest)
+  return false;
+#undef DO_
+}
+
+void CreateBucketRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:user.CreateBucketRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes bucketname = 1;
+  if (this->bucketname().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->bucketname(), output);
+  }
+
+  // bytes location = 2;
+  if (this->location().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->location(), output);
+  }
+
+  // bytes lastmodified = 3;
+  if (this->lastmodified().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->lastmodified(), output);
+  }
+
+  // bytes platform = 4;
+  if (this->platform().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      4, this->platform(), output);
+  }
+
+  // bytes token = 5;
+  if (this->token().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      5, this->token(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:user.CreateBucketRequest)
+}
+
+::google::protobuf::uint8* CreateBucketRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:user.CreateBucketRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes bucketname = 1;
+  if (this->bucketname().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->bucketname(), target);
+  }
+
+  // bytes location = 2;
+  if (this->location().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->location(), target);
+  }
+
+  // bytes lastmodified = 3;
+  if (this->lastmodified().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->lastmodified(), target);
+  }
+
+  // bytes platform = 4;
+  if (this->platform().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        4, this->platform(), target);
+  }
+
+  // bytes token = 5;
+  if (this->token().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        5, this->token(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:user.CreateBucketRequest)
+  return target;
+}
+
+size_t CreateBucketRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:user.CreateBucketRequest)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // bytes bucketname = 1;
+  if (this->bucketname().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->bucketname());
+  }
+
+  // bytes location = 2;
+  if (this->location().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->location());
+  }
+
+  // bytes lastmodified = 3;
+  if (this->lastmodified().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->lastmodified());
+  }
+
+  // bytes platform = 4;
+  if (this->platform().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->platform());
+  }
+
+  // bytes token = 5;
+  if (this->token().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->token());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CreateBucketRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:user.CreateBucketRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CreateBucketRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const CreateBucketRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:user.CreateBucketRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:user.CreateBucketRequest)
+    MergeFrom(*source);
+  }
+}
+
+void CreateBucketRequest::MergeFrom(const CreateBucketRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:user.CreateBucketRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.bucketname().size() > 0) {
+
+    bucketname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bucketname_);
+  }
+  if (from.location().size() > 0) {
+
+    location_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.location_);
+  }
+  if (from.lastmodified().size() > 0) {
+
+    lastmodified_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.lastmodified_);
+  }
+  if (from.platform().size() > 0) {
+
+    platform_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.platform_);
+  }
+  if (from.token().size() > 0) {
+
+    token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.token_);
+  }
+}
+
+void CreateBucketRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:user.CreateBucketRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CreateBucketRequest::CopyFrom(const CreateBucketRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:user.CreateBucketRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CreateBucketRequest::IsInitialized() const {
+  return true;
+}
+
+void CreateBucketRequest::Swap(CreateBucketRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CreateBucketRequest::InternalSwap(CreateBucketRequest* other) {
+  using std::swap;
+  bucketname_.Swap(&other->bucketname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  location_.Swap(&other->location_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  lastmodified_.Swap(&other->lastmodified_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  platform_.Swap(&other->platform_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  token_.Swap(&other->token_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata CreateBucketRequest::GetMetadata() const {
+  protobuf_user_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_user_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void CreateBucketResponse::InitAsDefaultInstance() {
+  ::user::_CreateBucketResponse_default_instance_._instance.get_mutable()->result_ = const_cast< ::user::ResultCode*>(
+      ::user::ResultCode::internal_default_instance());
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CreateBucketResponse::kResultFieldNumber;
+const int CreateBucketResponse::kSuccessFieldNumber;
+const int CreateBucketResponse::kPlatformFieldNumber;
+const int CreateBucketResponse::kTokenFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CreateBucketResponse::CreateBucketResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_user_2eproto::scc_info_CreateBucketResponse.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:user.CreateBucketResponse)
+}
+CreateBucketResponse::CreateBucketResponse(const CreateBucketResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  platform_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.platform().size() > 0) {
+    platform_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.platform_);
+  }
+  token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.token().size() > 0) {
+    token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.token_);
+  }
+  if (from.has_result()) {
+    result_ = new ::user::ResultCode(*from.result_);
+  } else {
+    result_ = NULL;
+  }
+  success_ = from.success_;
+  // @@protoc_insertion_point(copy_constructor:user.CreateBucketResponse)
+}
+
+void CreateBucketResponse::SharedCtor() {
+  platform_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&result_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&success_) -
+      reinterpret_cast<char*>(&result_)) + sizeof(success_));
+}
+
+CreateBucketResponse::~CreateBucketResponse() {
+  // @@protoc_insertion_point(destructor:user.CreateBucketResponse)
+  SharedDtor();
+}
+
+void CreateBucketResponse::SharedDtor() {
+  platform_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete result_;
+}
+
+void CreateBucketResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* CreateBucketResponse::descriptor() {
+  ::protobuf_user_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_user_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const CreateBucketResponse& CreateBucketResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_user_2eproto::scc_info_CreateBucketResponse.base);
+  return *internal_default_instance();
+}
+
+
+void CreateBucketResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:user.CreateBucketResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  platform_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && result_ != NULL) {
+    delete result_;
+  }
+  result_ = NULL;
+  success_ = false;
+  _internal_metadata_.Clear();
+}
+
+bool CreateBucketResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:user.CreateBucketResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .user.ResultCode result = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_result()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool success = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &success_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes platform = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_platform()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes token = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_token()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:user.CreateBucketResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:user.CreateBucketResponse)
+  return false;
+#undef DO_
+}
+
+void CreateBucketResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:user.CreateBucketResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .user.ResultCode result = 1;
+  if (this->has_result()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->_internal_result(), output);
+  }
+
+  // bool success = 2;
+  if (this->success() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->success(), output);
+  }
+
+  // bytes platform = 3;
+  if (this->platform().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->platform(), output);
+  }
+
+  // bytes token = 4;
+  if (this->token().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      4, this->token(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:user.CreateBucketResponse)
+}
+
+::google::protobuf::uint8* CreateBucketResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:user.CreateBucketResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .user.ResultCode result = 1;
+  if (this->has_result()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->_internal_result(), deterministic, target);
+  }
+
+  // bool success = 2;
+  if (this->success() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->success(), target);
+  }
+
+  // bytes platform = 3;
+  if (this->platform().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->platform(), target);
+  }
+
+  // bytes token = 4;
+  if (this->token().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        4, this->token(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:user.CreateBucketResponse)
+  return target;
+}
+
+size_t CreateBucketResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:user.CreateBucketResponse)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // bytes platform = 3;
+  if (this->platform().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->platform());
+  }
+
+  // bytes token = 4;
+  if (this->token().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->token());
+  }
+
+  // .user.ResultCode result = 1;
+  if (this->has_result()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *result_);
+  }
+
+  // bool success = 2;
+  if (this->success() != 0) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CreateBucketResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:user.CreateBucketResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CreateBucketResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const CreateBucketResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:user.CreateBucketResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:user.CreateBucketResponse)
+    MergeFrom(*source);
+  }
+}
+
+void CreateBucketResponse::MergeFrom(const CreateBucketResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:user.CreateBucketResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.platform().size() > 0) {
+
+    platform_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.platform_);
+  }
+  if (from.token().size() > 0) {
+
+    token_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.token_);
+  }
+  if (from.has_result()) {
+    mutable_result()->::user::ResultCode::MergeFrom(from.result());
+  }
+  if (from.success() != 0) {
+    set_success(from.success());
+  }
+}
+
+void CreateBucketResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:user.CreateBucketResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CreateBucketResponse::CopyFrom(const CreateBucketResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:user.CreateBucketResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CreateBucketResponse::IsInitialized() const {
+  return true;
+}
+
+void CreateBucketResponse::Swap(CreateBucketResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CreateBucketResponse::InternalSwap(CreateBucketResponse* other) {
+  using std::swap;
+  platform_.Swap(&other->platform_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  token_.Swap(&other->token_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(result_, other->result_);
+  swap(success_, other->success_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata CreateBucketResponse::GetMetadata() const {
+  protobuf_user_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_user_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void FileTransRequest::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int FileTransRequest::kFileMD5FieldNumber;
 const int FileTransRequest::kPlatformFieldNumber;
 const int FileTransRequest::kTokenFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -1526,10 +2420,6 @@ FileTransRequest::FileTransRequest(const FileTransRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  filemd5_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.filemd5().size() > 0) {
-    filemd5_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.filemd5_);
-  }
   platform_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.platform().size() > 0) {
     platform_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.platform_);
@@ -1542,7 +2432,6 @@ FileTransRequest::FileTransRequest(const FileTransRequest& from)
 }
 
 void FileTransRequest::SharedCtor() {
-  filemd5_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   platform_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   token_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1553,7 +2442,6 @@ FileTransRequest::~FileTransRequest() {
 }
 
 void FileTransRequest::SharedDtor() {
-  filemd5_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   platform_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   token_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1578,7 +2466,6 @@ void FileTransRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  filemd5_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   platform_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
@@ -1594,22 +2481,10 @@ bool FileTransRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // bytes fileMD5 = 1;
+      // bytes platform = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_filemd5()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // bytes platform = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_platform()));
         } else {
@@ -1618,10 +2493,10 @@ bool FileTransRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // bytes token = 3;
-      case 3: {
+      // bytes token = 2;
+      case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_token()));
         } else {
@@ -1656,22 +2531,16 @@ void FileTransRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes fileMD5 = 1;
-  if (this->filemd5().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      1, this->filemd5(), output);
-  }
-
-  // bytes platform = 2;
+  // bytes platform = 1;
   if (this->platform().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      2, this->platform(), output);
+      1, this->platform(), output);
   }
 
-  // bytes token = 3;
+  // bytes token = 2;
   if (this->token().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      3, this->token(), output);
+      2, this->token(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1688,25 +2557,18 @@ void FileTransRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes fileMD5 = 1;
-  if (this->filemd5().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        1, this->filemd5(), target);
-  }
-
-  // bytes platform = 2;
+  // bytes platform = 1;
   if (this->platform().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        2, this->platform(), target);
+        1, this->platform(), target);
   }
 
-  // bytes token = 3;
+  // bytes token = 2;
   if (this->token().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->token(), target);
+        2, this->token(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1726,21 +2588,14 @@ size_t FileTransRequest::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // bytes fileMD5 = 1;
-  if (this->filemd5().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->filemd5());
-  }
-
-  // bytes platform = 2;
+  // bytes platform = 1;
   if (this->platform().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->platform());
   }
 
-  // bytes token = 3;
+  // bytes token = 2;
   if (this->token().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
@@ -1774,10 +2629,6 @@ void FileTransRequest::MergeFrom(const FileTransRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.filemd5().size() > 0) {
-
-    filemd5_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.filemd5_);
-  }
   if (from.platform().size() > 0) {
 
     platform_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.platform_);
@@ -1812,8 +2663,6 @@ void FileTransRequest::Swap(FileTransRequest* other) {
 }
 void FileTransRequest::InternalSwap(FileTransRequest* other) {
   using std::swap;
-  filemd5_.Swap(&other->filemd5_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
   platform_.Swap(&other->platform_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   token_.Swap(&other->token_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
@@ -2261,6 +3110,14 @@ void UserServiceRpc::Login(::google::protobuf::RpcController* controller,
   done->Run();
 }
 
+void UserServiceRpc::CreateBucket(::google::protobuf::RpcController* controller,
+                         const ::user::CreateBucketRequest*,
+                         ::user::CreateBucketResponse*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method CreateBucket() not implemented.");
+  done->Run();
+}
+
 void UserServiceRpc::GetFileServer(::google::protobuf::RpcController* controller,
                          const ::user::FileTransRequest*,
                          ::user::FileTransResponse*,
@@ -2283,6 +3140,12 @@ void UserServiceRpc::CallMethod(const ::google::protobuf::MethodDescriptor* meth
              done);
       break;
     case 1:
+      CreateBucket(controller,
+             ::google::protobuf::down_cast<const ::user::CreateBucketRequest*>(request),
+             ::google::protobuf::down_cast< ::user::CreateBucketResponse*>(response),
+             done);
+      break;
+    case 2:
       GetFileServer(controller,
              ::google::protobuf::down_cast<const ::user::FileTransRequest*>(request),
              ::google::protobuf::down_cast< ::user::FileTransResponse*>(response),
@@ -2301,6 +3164,8 @@ const ::google::protobuf::Message& UserServiceRpc::GetRequestPrototype(
     case 0:
       return ::user::LoginRequest::default_instance();
     case 1:
+      return ::user::CreateBucketRequest::default_instance();
+    case 2:
       return ::user::FileTransRequest::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -2316,6 +3181,8 @@ const ::google::protobuf::Message& UserServiceRpc::GetResponsePrototype(
     case 0:
       return ::user::LoginResponse::default_instance();
     case 1:
+      return ::user::CreateBucketResponse::default_instance();
+    case 2:
       return ::user::FileTransResponse::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -2342,11 +3209,18 @@ void UserServiceRpc_Stub::Login(::google::protobuf::RpcController* controller,
   channel_->CallMethod(descriptor()->method(0),
                        controller, request, response, done);
 }
+void UserServiceRpc_Stub::CreateBucket(::google::protobuf::RpcController* controller,
+                              const ::user::CreateBucketRequest* request,
+                              ::user::CreateBucketResponse* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(1),
+                       controller, request, response, done);
+}
 void UserServiceRpc_Stub::GetFileServer(::google::protobuf::RpcController* controller,
                               const ::user::FileTransRequest* request,
                               ::user::FileTransResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(1),
+  channel_->CallMethod(descriptor()->method(2),
                        controller, request, response, done);
 }
 
@@ -2365,6 +3239,12 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::user::LoginRequest* Arena::Creat
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::user::LoginResponse* Arena::CreateMaybeMessage< ::user::LoginResponse >(Arena* arena) {
   return Arena::CreateInternal< ::user::LoginResponse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::user::CreateBucketRequest* Arena::CreateMaybeMessage< ::user::CreateBucketRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::user::CreateBucketRequest >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::user::CreateBucketResponse* Arena::CreateMaybeMessage< ::user::CreateBucketResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::user::CreateBucketResponse >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::user::FileTransRequest* Arena::CreateMaybeMessage< ::user::FileTransRequest >(Arena* arena) {
   return Arena::CreateInternal< ::user::FileTransRequest >(arena);

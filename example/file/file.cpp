@@ -24,7 +24,7 @@ int main(int argc, char const *argv[])
     int opt = 1;
     setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
 
-    std::string ip = "192.168.1.35";
+    std::string ip = "192.168.77.39";
     uint16_t port = 8000;
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;

@@ -39,7 +39,7 @@ namespace protobuf_user_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[6];
+  static const ::google::protobuf::internal::ParseTable schema[8];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -47,6 +47,12 @@ struct TableStruct {
 void AddDescriptors();
 }  // namespace protobuf_user_2eproto
 namespace user {
+class CreateBucketRequest;
+class CreateBucketRequestDefaultTypeInternal;
+extern CreateBucketRequestDefaultTypeInternal _CreateBucketRequest_default_instance_;
+class CreateBucketResponse;
+class CreateBucketResponseDefaultTypeInternal;
+extern CreateBucketResponseDefaultTypeInternal _CreateBucketResponse_default_instance_;
 class FileServer;
 class FileServerDefaultTypeInternal;
 extern FileServerDefaultTypeInternal _FileServer_default_instance_;
@@ -68,6 +74,8 @@ extern ResultCodeDefaultTypeInternal _ResultCode_default_instance_;
 }  // namespace user
 namespace google {
 namespace protobuf {
+template<> ::user::CreateBucketRequest* Arena::CreateMaybeMessage<::user::CreateBucketRequest>(Arena*);
+template<> ::user::CreateBucketResponse* Arena::CreateMaybeMessage<::user::CreateBucketResponse>(Arena*);
 template<> ::user::FileServer* Arena::CreateMaybeMessage<::user::FileServer>(Arena*);
 template<> ::user::FileTransRequest* Arena::CreateMaybeMessage<::user::FileTransRequest>(Arena*);
 template<> ::user::FileTransResponse* Arena::CreateMaybeMessage<::user::FileTransResponse>(Arena*);
@@ -572,6 +580,20 @@ class LoginResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_token();
   void set_allocated_token(::std::string* token);
 
+  // bytes buckets = 5;
+  void clear_buckets();
+  static const int kBucketsFieldNumber = 5;
+  const ::std::string& buckets() const;
+  void set_buckets(const ::std::string& value);
+  #if LANG_CXX11
+  void set_buckets(::std::string&& value);
+  #endif
+  void set_buckets(const char* value);
+  void set_buckets(const void* value, size_t size);
+  ::std::string* mutable_buckets();
+  ::std::string* release_buckets();
+  void set_allocated_buckets(::std::string* buckets);
+
   // .user.ResultCode result = 1;
   bool has_result() const;
   void clear_result();
@@ -591,6 +613,324 @@ class LoginResponse : public ::google::protobuf::Message /* @@protoc_insertion_p
   void set_success(bool value);
 
   // @@protoc_insertion_point(class_scope:user.LoginResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr platform_;
+  ::google::protobuf::internal::ArenaStringPtr token_;
+  ::google::protobuf::internal::ArenaStringPtr buckets_;
+  ::user::ResultCode* result_;
+  bool success_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_user_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class CreateBucketRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:user.CreateBucketRequest) */ {
+ public:
+  CreateBucketRequest();
+  virtual ~CreateBucketRequest();
+
+  CreateBucketRequest(const CreateBucketRequest& from);
+
+  inline CreateBucketRequest& operator=(const CreateBucketRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  CreateBucketRequest(CreateBucketRequest&& from) noexcept
+    : CreateBucketRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline CreateBucketRequest& operator=(CreateBucketRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CreateBucketRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const CreateBucketRequest* internal_default_instance() {
+    return reinterpret_cast<const CreateBucketRequest*>(
+               &_CreateBucketRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  void Swap(CreateBucketRequest* other);
+  friend void swap(CreateBucketRequest& a, CreateBucketRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CreateBucketRequest* New() const final {
+    return CreateMaybeMessage<CreateBucketRequest>(NULL);
+  }
+
+  CreateBucketRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<CreateBucketRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const CreateBucketRequest& from);
+  void MergeFrom(const CreateBucketRequest& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CreateBucketRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bytes bucketname = 1;
+  void clear_bucketname();
+  static const int kBucketnameFieldNumber = 1;
+  const ::std::string& bucketname() const;
+  void set_bucketname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_bucketname(::std::string&& value);
+  #endif
+  void set_bucketname(const char* value);
+  void set_bucketname(const void* value, size_t size);
+  ::std::string* mutable_bucketname();
+  ::std::string* release_bucketname();
+  void set_allocated_bucketname(::std::string* bucketname);
+
+  // bytes location = 2;
+  void clear_location();
+  static const int kLocationFieldNumber = 2;
+  const ::std::string& location() const;
+  void set_location(const ::std::string& value);
+  #if LANG_CXX11
+  void set_location(::std::string&& value);
+  #endif
+  void set_location(const char* value);
+  void set_location(const void* value, size_t size);
+  ::std::string* mutable_location();
+  ::std::string* release_location();
+  void set_allocated_location(::std::string* location);
+
+  // bytes lastmodified = 3;
+  void clear_lastmodified();
+  static const int kLastmodifiedFieldNumber = 3;
+  const ::std::string& lastmodified() const;
+  void set_lastmodified(const ::std::string& value);
+  #if LANG_CXX11
+  void set_lastmodified(::std::string&& value);
+  #endif
+  void set_lastmodified(const char* value);
+  void set_lastmodified(const void* value, size_t size);
+  ::std::string* mutable_lastmodified();
+  ::std::string* release_lastmodified();
+  void set_allocated_lastmodified(::std::string* lastmodified);
+
+  // bytes platform = 4;
+  void clear_platform();
+  static const int kPlatformFieldNumber = 4;
+  const ::std::string& platform() const;
+  void set_platform(const ::std::string& value);
+  #if LANG_CXX11
+  void set_platform(::std::string&& value);
+  #endif
+  void set_platform(const char* value);
+  void set_platform(const void* value, size_t size);
+  ::std::string* mutable_platform();
+  ::std::string* release_platform();
+  void set_allocated_platform(::std::string* platform);
+
+  // bytes token = 5;
+  void clear_token();
+  static const int kTokenFieldNumber = 5;
+  const ::std::string& token() const;
+  void set_token(const ::std::string& value);
+  #if LANG_CXX11
+  void set_token(::std::string&& value);
+  #endif
+  void set_token(const char* value);
+  void set_token(const void* value, size_t size);
+  ::std::string* mutable_token();
+  ::std::string* release_token();
+  void set_allocated_token(::std::string* token);
+
+  // @@protoc_insertion_point(class_scope:user.CreateBucketRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr bucketname_;
+  ::google::protobuf::internal::ArenaStringPtr location_;
+  ::google::protobuf::internal::ArenaStringPtr lastmodified_;
+  ::google::protobuf::internal::ArenaStringPtr platform_;
+  ::google::protobuf::internal::ArenaStringPtr token_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_user_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class CreateBucketResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:user.CreateBucketResponse) */ {
+ public:
+  CreateBucketResponse();
+  virtual ~CreateBucketResponse();
+
+  CreateBucketResponse(const CreateBucketResponse& from);
+
+  inline CreateBucketResponse& operator=(const CreateBucketResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  CreateBucketResponse(CreateBucketResponse&& from) noexcept
+    : CreateBucketResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CreateBucketResponse& operator=(CreateBucketResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CreateBucketResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const CreateBucketResponse* internal_default_instance() {
+    return reinterpret_cast<const CreateBucketResponse*>(
+               &_CreateBucketResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  void Swap(CreateBucketResponse* other);
+  friend void swap(CreateBucketResponse& a, CreateBucketResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CreateBucketResponse* New() const final {
+    return CreateMaybeMessage<CreateBucketResponse>(NULL);
+  }
+
+  CreateBucketResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<CreateBucketResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const CreateBucketResponse& from);
+  void MergeFrom(const CreateBucketResponse& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CreateBucketResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bytes platform = 3;
+  void clear_platform();
+  static const int kPlatformFieldNumber = 3;
+  const ::std::string& platform() const;
+  void set_platform(const ::std::string& value);
+  #if LANG_CXX11
+  void set_platform(::std::string&& value);
+  #endif
+  void set_platform(const char* value);
+  void set_platform(const void* value, size_t size);
+  ::std::string* mutable_platform();
+  ::std::string* release_platform();
+  void set_allocated_platform(::std::string* platform);
+
+  // bytes token = 4;
+  void clear_token();
+  static const int kTokenFieldNumber = 4;
+  const ::std::string& token() const;
+  void set_token(const ::std::string& value);
+  #if LANG_CXX11
+  void set_token(::std::string&& value);
+  #endif
+  void set_token(const char* value);
+  void set_token(const void* value, size_t size);
+  ::std::string* mutable_token();
+  ::std::string* release_token();
+  void set_allocated_token(::std::string* token);
+
+  // .user.ResultCode result = 1;
+  bool has_result() const;
+  void clear_result();
+  static const int kResultFieldNumber = 1;
+  private:
+  const ::user::ResultCode& _internal_result() const;
+  public:
+  const ::user::ResultCode& result() const;
+  ::user::ResultCode* release_result();
+  ::user::ResultCode* mutable_result();
+  void set_allocated_result(::user::ResultCode* result);
+
+  // bool success = 2;
+  void clear_success();
+  static const int kSuccessFieldNumber = 2;
+  bool success() const;
+  void set_success(bool value);
+
+  // @@protoc_insertion_point(class_scope:user.CreateBucketResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -638,7 +978,7 @@ class FileTransRequest : public ::google::protobuf::Message /* @@protoc_insertio
                &_FileTransRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   void Swap(FileTransRequest* other);
   friend void swap(FileTransRequest& a, FileTransRequest& b) {
@@ -690,23 +1030,9 @@ class FileTransRequest : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
-  // bytes fileMD5 = 1;
-  void clear_filemd5();
-  static const int kFileMD5FieldNumber = 1;
-  const ::std::string& filemd5() const;
-  void set_filemd5(const ::std::string& value);
-  #if LANG_CXX11
-  void set_filemd5(::std::string&& value);
-  #endif
-  void set_filemd5(const char* value);
-  void set_filemd5(const void* value, size_t size);
-  ::std::string* mutable_filemd5();
-  ::std::string* release_filemd5();
-  void set_allocated_filemd5(::std::string* filemd5);
-
-  // bytes platform = 2;
+  // bytes platform = 1;
   void clear_platform();
-  static const int kPlatformFieldNumber = 2;
+  static const int kPlatformFieldNumber = 1;
   const ::std::string& platform() const;
   void set_platform(const ::std::string& value);
   #if LANG_CXX11
@@ -718,9 +1044,9 @@ class FileTransRequest : public ::google::protobuf::Message /* @@protoc_insertio
   ::std::string* release_platform();
   void set_allocated_platform(::std::string* platform);
 
-  // bytes token = 3;
+  // bytes token = 2;
   void clear_token();
-  static const int kTokenFieldNumber = 3;
+  static const int kTokenFieldNumber = 2;
   const ::std::string& token() const;
   void set_token(const ::std::string& value);
   #if LANG_CXX11
@@ -736,7 +1062,6 @@ class FileTransRequest : public ::google::protobuf::Message /* @@protoc_insertio
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr filemd5_;
   ::google::protobuf::internal::ArenaStringPtr platform_;
   ::google::protobuf::internal::ArenaStringPtr token_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -779,7 +1104,7 @@ class FileTransResponse : public ::google::protobuf::Message /* @@protoc_inserti
                &_FileTransResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   void Swap(FileTransResponse* other);
   friend void swap(FileTransResponse& a, FileTransResponse& b) {
@@ -920,6 +1245,10 @@ class UserServiceRpc : public ::google::protobuf::Service {
                        const ::user::LoginRequest* request,
                        ::user::LoginResponse* response,
                        ::google::protobuf::Closure* done);
+  virtual void CreateBucket(::google::protobuf::RpcController* controller,
+                       const ::user::CreateBucketRequest* request,
+                       ::user::CreateBucketResponse* response,
+                       ::google::protobuf::Closure* done);
   virtual void GetFileServer(::google::protobuf::RpcController* controller,
                        const ::user::FileTransRequest* request,
                        ::user::FileTransResponse* response,
@@ -956,6 +1285,10 @@ class UserServiceRpc_Stub : public UserServiceRpc {
   void Login(::google::protobuf::RpcController* controller,
                        const ::user::LoginRequest* request,
                        ::user::LoginResponse* response,
+                       ::google::protobuf::Closure* done);
+  void CreateBucket(::google::protobuf::RpcController* controller,
+                       const ::user::CreateBucketRequest* request,
+                       ::user::CreateBucketResponse* response,
                        ::google::protobuf::Closure* done);
   void GetFileServer(::google::protobuf::RpcController* controller,
                        const ::user::FileTransRequest* request,
@@ -1458,64 +1791,511 @@ inline void LoginResponse::set_allocated_token(::std::string* token) {
   // @@protoc_insertion_point(field_set_allocated:user.LoginResponse.token)
 }
 
-// -------------------------------------------------------------------
-
-// FileTransRequest
-
-// bytes fileMD5 = 1;
-inline void FileTransRequest::clear_filemd5() {
-  filemd5_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// bytes buckets = 5;
+inline void LoginResponse::clear_buckets() {
+  buckets_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& FileTransRequest::filemd5() const {
-  // @@protoc_insertion_point(field_get:user.FileTransRequest.fileMD5)
-  return filemd5_.GetNoArena();
+inline const ::std::string& LoginResponse::buckets() const {
+  // @@protoc_insertion_point(field_get:user.LoginResponse.buckets)
+  return buckets_.GetNoArena();
 }
-inline void FileTransRequest::set_filemd5(const ::std::string& value) {
+inline void LoginResponse::set_buckets(const ::std::string& value) {
   
-  filemd5_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:user.FileTransRequest.fileMD5)
+  buckets_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:user.LoginResponse.buckets)
 }
 #if LANG_CXX11
-inline void FileTransRequest::set_filemd5(::std::string&& value) {
+inline void LoginResponse::set_buckets(::std::string&& value) {
   
-  filemd5_.SetNoArena(
+  buckets_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:user.FileTransRequest.fileMD5)
+  // @@protoc_insertion_point(field_set_rvalue:user.LoginResponse.buckets)
 }
 #endif
-inline void FileTransRequest::set_filemd5(const char* value) {
+inline void LoginResponse::set_buckets(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  filemd5_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:user.FileTransRequest.fileMD5)
+  buckets_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:user.LoginResponse.buckets)
 }
-inline void FileTransRequest::set_filemd5(const void* value, size_t size) {
+inline void LoginResponse::set_buckets(const void* value, size_t size) {
   
-  filemd5_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  buckets_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:user.FileTransRequest.fileMD5)
+  // @@protoc_insertion_point(field_set_pointer:user.LoginResponse.buckets)
 }
-inline ::std::string* FileTransRequest::mutable_filemd5() {
+inline ::std::string* LoginResponse::mutable_buckets() {
   
-  // @@protoc_insertion_point(field_mutable:user.FileTransRequest.fileMD5)
-  return filemd5_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:user.LoginResponse.buckets)
+  return buckets_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* FileTransRequest::release_filemd5() {
-  // @@protoc_insertion_point(field_release:user.FileTransRequest.fileMD5)
+inline ::std::string* LoginResponse::release_buckets() {
+  // @@protoc_insertion_point(field_release:user.LoginResponse.buckets)
   
-  return filemd5_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return buckets_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void FileTransRequest::set_allocated_filemd5(::std::string* filemd5) {
-  if (filemd5 != NULL) {
+inline void LoginResponse::set_allocated_buckets(::std::string* buckets) {
+  if (buckets != NULL) {
     
   } else {
     
   }
-  filemd5_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), filemd5);
-  // @@protoc_insertion_point(field_set_allocated:user.FileTransRequest.fileMD5)
+  buckets_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), buckets);
+  // @@protoc_insertion_point(field_set_allocated:user.LoginResponse.buckets)
 }
 
-// bytes platform = 2;
+// -------------------------------------------------------------------
+
+// CreateBucketRequest
+
+// bytes bucketname = 1;
+inline void CreateBucketRequest::clear_bucketname() {
+  bucketname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CreateBucketRequest::bucketname() const {
+  // @@protoc_insertion_point(field_get:user.CreateBucketRequest.bucketname)
+  return bucketname_.GetNoArena();
+}
+inline void CreateBucketRequest::set_bucketname(const ::std::string& value) {
+  
+  bucketname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:user.CreateBucketRequest.bucketname)
+}
+#if LANG_CXX11
+inline void CreateBucketRequest::set_bucketname(::std::string&& value) {
+  
+  bucketname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:user.CreateBucketRequest.bucketname)
+}
+#endif
+inline void CreateBucketRequest::set_bucketname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  bucketname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:user.CreateBucketRequest.bucketname)
+}
+inline void CreateBucketRequest::set_bucketname(const void* value, size_t size) {
+  
+  bucketname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:user.CreateBucketRequest.bucketname)
+}
+inline ::std::string* CreateBucketRequest::mutable_bucketname() {
+  
+  // @@protoc_insertion_point(field_mutable:user.CreateBucketRequest.bucketname)
+  return bucketname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CreateBucketRequest::release_bucketname() {
+  // @@protoc_insertion_point(field_release:user.CreateBucketRequest.bucketname)
+  
+  return bucketname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CreateBucketRequest::set_allocated_bucketname(::std::string* bucketname) {
+  if (bucketname != NULL) {
+    
+  } else {
+    
+  }
+  bucketname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), bucketname);
+  // @@protoc_insertion_point(field_set_allocated:user.CreateBucketRequest.bucketname)
+}
+
+// bytes location = 2;
+inline void CreateBucketRequest::clear_location() {
+  location_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CreateBucketRequest::location() const {
+  // @@protoc_insertion_point(field_get:user.CreateBucketRequest.location)
+  return location_.GetNoArena();
+}
+inline void CreateBucketRequest::set_location(const ::std::string& value) {
+  
+  location_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:user.CreateBucketRequest.location)
+}
+#if LANG_CXX11
+inline void CreateBucketRequest::set_location(::std::string&& value) {
+  
+  location_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:user.CreateBucketRequest.location)
+}
+#endif
+inline void CreateBucketRequest::set_location(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  location_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:user.CreateBucketRequest.location)
+}
+inline void CreateBucketRequest::set_location(const void* value, size_t size) {
+  
+  location_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:user.CreateBucketRequest.location)
+}
+inline ::std::string* CreateBucketRequest::mutable_location() {
+  
+  // @@protoc_insertion_point(field_mutable:user.CreateBucketRequest.location)
+  return location_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CreateBucketRequest::release_location() {
+  // @@protoc_insertion_point(field_release:user.CreateBucketRequest.location)
+  
+  return location_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CreateBucketRequest::set_allocated_location(::std::string* location) {
+  if (location != NULL) {
+    
+  } else {
+    
+  }
+  location_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), location);
+  // @@protoc_insertion_point(field_set_allocated:user.CreateBucketRequest.location)
+}
+
+// bytes lastmodified = 3;
+inline void CreateBucketRequest::clear_lastmodified() {
+  lastmodified_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CreateBucketRequest::lastmodified() const {
+  // @@protoc_insertion_point(field_get:user.CreateBucketRequest.lastmodified)
+  return lastmodified_.GetNoArena();
+}
+inline void CreateBucketRequest::set_lastmodified(const ::std::string& value) {
+  
+  lastmodified_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:user.CreateBucketRequest.lastmodified)
+}
+#if LANG_CXX11
+inline void CreateBucketRequest::set_lastmodified(::std::string&& value) {
+  
+  lastmodified_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:user.CreateBucketRequest.lastmodified)
+}
+#endif
+inline void CreateBucketRequest::set_lastmodified(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  lastmodified_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:user.CreateBucketRequest.lastmodified)
+}
+inline void CreateBucketRequest::set_lastmodified(const void* value, size_t size) {
+  
+  lastmodified_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:user.CreateBucketRequest.lastmodified)
+}
+inline ::std::string* CreateBucketRequest::mutable_lastmodified() {
+  
+  // @@protoc_insertion_point(field_mutable:user.CreateBucketRequest.lastmodified)
+  return lastmodified_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CreateBucketRequest::release_lastmodified() {
+  // @@protoc_insertion_point(field_release:user.CreateBucketRequest.lastmodified)
+  
+  return lastmodified_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CreateBucketRequest::set_allocated_lastmodified(::std::string* lastmodified) {
+  if (lastmodified != NULL) {
+    
+  } else {
+    
+  }
+  lastmodified_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), lastmodified);
+  // @@protoc_insertion_point(field_set_allocated:user.CreateBucketRequest.lastmodified)
+}
+
+// bytes platform = 4;
+inline void CreateBucketRequest::clear_platform() {
+  platform_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CreateBucketRequest::platform() const {
+  // @@protoc_insertion_point(field_get:user.CreateBucketRequest.platform)
+  return platform_.GetNoArena();
+}
+inline void CreateBucketRequest::set_platform(const ::std::string& value) {
+  
+  platform_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:user.CreateBucketRequest.platform)
+}
+#if LANG_CXX11
+inline void CreateBucketRequest::set_platform(::std::string&& value) {
+  
+  platform_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:user.CreateBucketRequest.platform)
+}
+#endif
+inline void CreateBucketRequest::set_platform(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  platform_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:user.CreateBucketRequest.platform)
+}
+inline void CreateBucketRequest::set_platform(const void* value, size_t size) {
+  
+  platform_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:user.CreateBucketRequest.platform)
+}
+inline ::std::string* CreateBucketRequest::mutable_platform() {
+  
+  // @@protoc_insertion_point(field_mutable:user.CreateBucketRequest.platform)
+  return platform_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CreateBucketRequest::release_platform() {
+  // @@protoc_insertion_point(field_release:user.CreateBucketRequest.platform)
+  
+  return platform_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CreateBucketRequest::set_allocated_platform(::std::string* platform) {
+  if (platform != NULL) {
+    
+  } else {
+    
+  }
+  platform_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), platform);
+  // @@protoc_insertion_point(field_set_allocated:user.CreateBucketRequest.platform)
+}
+
+// bytes token = 5;
+inline void CreateBucketRequest::clear_token() {
+  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CreateBucketRequest::token() const {
+  // @@protoc_insertion_point(field_get:user.CreateBucketRequest.token)
+  return token_.GetNoArena();
+}
+inline void CreateBucketRequest::set_token(const ::std::string& value) {
+  
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:user.CreateBucketRequest.token)
+}
+#if LANG_CXX11
+inline void CreateBucketRequest::set_token(::std::string&& value) {
+  
+  token_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:user.CreateBucketRequest.token)
+}
+#endif
+inline void CreateBucketRequest::set_token(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:user.CreateBucketRequest.token)
+}
+inline void CreateBucketRequest::set_token(const void* value, size_t size) {
+  
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:user.CreateBucketRequest.token)
+}
+inline ::std::string* CreateBucketRequest::mutable_token() {
+  
+  // @@protoc_insertion_point(field_mutable:user.CreateBucketRequest.token)
+  return token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CreateBucketRequest::release_token() {
+  // @@protoc_insertion_point(field_release:user.CreateBucketRequest.token)
+  
+  return token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CreateBucketRequest::set_allocated_token(::std::string* token) {
+  if (token != NULL) {
+    
+  } else {
+    
+  }
+  token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
+  // @@protoc_insertion_point(field_set_allocated:user.CreateBucketRequest.token)
+}
+
+// -------------------------------------------------------------------
+
+// CreateBucketResponse
+
+// .user.ResultCode result = 1;
+inline bool CreateBucketResponse::has_result() const {
+  return this != internal_default_instance() && result_ != NULL;
+}
+inline void CreateBucketResponse::clear_result() {
+  if (GetArenaNoVirtual() == NULL && result_ != NULL) {
+    delete result_;
+  }
+  result_ = NULL;
+}
+inline const ::user::ResultCode& CreateBucketResponse::_internal_result() const {
+  return *result_;
+}
+inline const ::user::ResultCode& CreateBucketResponse::result() const {
+  const ::user::ResultCode* p = result_;
+  // @@protoc_insertion_point(field_get:user.CreateBucketResponse.result)
+  return p != NULL ? *p : *reinterpret_cast<const ::user::ResultCode*>(
+      &::user::_ResultCode_default_instance_);
+}
+inline ::user::ResultCode* CreateBucketResponse::release_result() {
+  // @@protoc_insertion_point(field_release:user.CreateBucketResponse.result)
+  
+  ::user::ResultCode* temp = result_;
+  result_ = NULL;
+  return temp;
+}
+inline ::user::ResultCode* CreateBucketResponse::mutable_result() {
+  
+  if (result_ == NULL) {
+    auto* p = CreateMaybeMessage<::user::ResultCode>(GetArenaNoVirtual());
+    result_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:user.CreateBucketResponse.result)
+  return result_;
+}
+inline void CreateBucketResponse::set_allocated_result(::user::ResultCode* result) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete result_;
+  }
+  if (result) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      result = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, result, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  result_ = result;
+  // @@protoc_insertion_point(field_set_allocated:user.CreateBucketResponse.result)
+}
+
+// bool success = 2;
+inline void CreateBucketResponse::clear_success() {
+  success_ = false;
+}
+inline bool CreateBucketResponse::success() const {
+  // @@protoc_insertion_point(field_get:user.CreateBucketResponse.success)
+  return success_;
+}
+inline void CreateBucketResponse::set_success(bool value) {
+  
+  success_ = value;
+  // @@protoc_insertion_point(field_set:user.CreateBucketResponse.success)
+}
+
+// bytes platform = 3;
+inline void CreateBucketResponse::clear_platform() {
+  platform_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CreateBucketResponse::platform() const {
+  // @@protoc_insertion_point(field_get:user.CreateBucketResponse.platform)
+  return platform_.GetNoArena();
+}
+inline void CreateBucketResponse::set_platform(const ::std::string& value) {
+  
+  platform_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:user.CreateBucketResponse.platform)
+}
+#if LANG_CXX11
+inline void CreateBucketResponse::set_platform(::std::string&& value) {
+  
+  platform_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:user.CreateBucketResponse.platform)
+}
+#endif
+inline void CreateBucketResponse::set_platform(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  platform_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:user.CreateBucketResponse.platform)
+}
+inline void CreateBucketResponse::set_platform(const void* value, size_t size) {
+  
+  platform_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:user.CreateBucketResponse.platform)
+}
+inline ::std::string* CreateBucketResponse::mutable_platform() {
+  
+  // @@protoc_insertion_point(field_mutable:user.CreateBucketResponse.platform)
+  return platform_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CreateBucketResponse::release_platform() {
+  // @@protoc_insertion_point(field_release:user.CreateBucketResponse.platform)
+  
+  return platform_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CreateBucketResponse::set_allocated_platform(::std::string* platform) {
+  if (platform != NULL) {
+    
+  } else {
+    
+  }
+  platform_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), platform);
+  // @@protoc_insertion_point(field_set_allocated:user.CreateBucketResponse.platform)
+}
+
+// bytes token = 4;
+inline void CreateBucketResponse::clear_token() {
+  token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CreateBucketResponse::token() const {
+  // @@protoc_insertion_point(field_get:user.CreateBucketResponse.token)
+  return token_.GetNoArena();
+}
+inline void CreateBucketResponse::set_token(const ::std::string& value) {
+  
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:user.CreateBucketResponse.token)
+}
+#if LANG_CXX11
+inline void CreateBucketResponse::set_token(::std::string&& value) {
+  
+  token_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:user.CreateBucketResponse.token)
+}
+#endif
+inline void CreateBucketResponse::set_token(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:user.CreateBucketResponse.token)
+}
+inline void CreateBucketResponse::set_token(const void* value, size_t size) {
+  
+  token_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:user.CreateBucketResponse.token)
+}
+inline ::std::string* CreateBucketResponse::mutable_token() {
+  
+  // @@protoc_insertion_point(field_mutable:user.CreateBucketResponse.token)
+  return token_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CreateBucketResponse::release_token() {
+  // @@protoc_insertion_point(field_release:user.CreateBucketResponse.token)
+  
+  return token_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CreateBucketResponse::set_allocated_token(::std::string* token) {
+  if (token != NULL) {
+    
+  } else {
+    
+  }
+  token_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), token);
+  // @@protoc_insertion_point(field_set_allocated:user.CreateBucketResponse.token)
+}
+
+// -------------------------------------------------------------------
+
+// FileTransRequest
+
+// bytes platform = 1;
 inline void FileTransRequest::clear_platform() {
   platform_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1568,7 +2348,7 @@ inline void FileTransRequest::set_allocated_platform(::std::string* platform) {
   // @@protoc_insertion_point(field_set_allocated:user.FileTransRequest.platform)
 }
 
-// bytes token = 3;
+// bytes token = 2;
 inline void FileTransRequest::clear_token() {
   token_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1856,6 +2636,10 @@ inline void FileTransResponse::set_allocated_server(::user::FileServer* server) 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

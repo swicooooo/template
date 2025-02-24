@@ -9,6 +9,8 @@
 #include <openssl/md5.h>
 #include <sstream>
 #include <cstring>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #include <string.h>
 #include <sys/types.h>
@@ -214,7 +216,21 @@ bool filetransferReceiver::instructClientSendBlock(int clientfd, const std::vect
 void filetransferReceiver::recvClientSendBlock(uint64_t &recvsize)
 {
     // 根据文件是否有内容改变打开方式,fixbug: 多进程打开文件or多线程
-    
+    size_t pos = 0;
+    while ((pos = filePath_.find('/', pos)) != string::npos) 
+    {
+        string path = filePath_.substr(0, pos);
+        pos++; 
+
+        if (path.empty() || path == ".") continue; 
+
+        if (mkdir(path.c_str(), 0777) == -1 && errno != EEXIST) 
+        {
+            printf("创建目录失败：%s 错误：%s\n", path.c_str(), strerror(errno));
+            return;
+        }
+    }
+
     int filefd = access(filePath_.c_str(), F_OK)==0?
                      open(filePath_.c_str(), O_APPEND | O_RDWR):
                      open(filePath_.c_str(), O_CREAT | O_RDWR);
@@ -337,7 +353,7 @@ void filetransferSender::uploadFile(int sockfd, const std::string &path, const s
     // 发送上传文件的请求
     std::string loadpath = path;
     int idx = path.find_last_of("/");
-    if(idx == std::string::npos)
+    if(idx != std::string::npos)
         loadpath = dir + path.substr(idx+1);
 
     struct UploadFile uploadfile;

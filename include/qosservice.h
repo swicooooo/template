@@ -13,6 +13,7 @@ public:
     MsgHandler getHandler(std::string event);  
 
     void login(const TcpConnectionPtr& conn, nlohmann::json &js, Timestamp timestamp);
+    void create_bucket(const TcpConnectionPtr& conn, nlohmann::json &js, Timestamp timestamp);
     void file_server(const TcpConnectionPtr& conn, nlohmann::json &js, Timestamp timestamp);
 private:
     QosService();

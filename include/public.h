@@ -4,7 +4,10 @@ namespace EnMsgType
 {
 static std::string LOGIN_MSG  = "login";
 static std::string LOGIN_ACK_MSG  = "login_ack";
+static std::string CREATE_BUCKET_MSG  = "create_bucket";
+static std::string CREATE_BUCKET_ACK_MSG  = "create_bucket_ack";
 static std::string FILE_SERVER = "file_server";
+static std::string FILE_SERVER_ACK_MSG = "file_server_ack";
 }
 
 

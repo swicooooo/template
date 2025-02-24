@@ -6,9 +6,10 @@ option cc_generic_services = true; // 生成service服务类和rpc方法
 service UserServiceRpc
 {
     rpc Login (LoginRequest) returns (LoginResponse);
+    rpc CreateBucket (CreateBucketRequest) returns (CreateBucketResponse);
     rpc GetFileServer (FileTransRequest) returns (FileTransResponse);
 }
-
+////////////////////////////common//////////////////////////////////////
 message ResultCode
 {
     int32 errcode = 1;
@@ -32,13 +33,29 @@ message LoginResponse
     bool success = 2;
     bytes platform = 3;
     bytes token = 4;
+    bytes buckets = 5;
+}
+/////////////////////////////buckets//////////////////////////////////////
+message CreateBucketRequest
+{
+    bytes bucketname = 1;
+    bytes location = 2;
+    bytes lastmodified = 3;
+    bytes platform = 4;
+    bytes token = 5;
+}
+message CreateBucketResponse
+{
+    ResultCode result = 1;
+    bool success = 2;
+    bytes platform = 3;
+    bytes token = 4;
 }
 /////////////////////////////FileTrans////////////////////////////////////
 message FileTransRequest
 {
-    bytes fileMD5 = 1;
-    bytes platform = 2;
-    bytes token = 3;
+    bytes platform = 1;
+    bytes token = 2;
 }
 
 message FileTransResponse

@@ -13,7 +13,7 @@ int main(int argc, char **argv)
     // uint16_t port = atoi(argv[2]);
 
     EventLoop loop;
-    InetAddress listenAddr(/*port*/10086, /*ip*/"192.168.1.35");    
+    InetAddress listenAddr(/*port*/10086, /*ip*/"192.168.77.39");    
 
     QosServer server(&loop, listenAddr, "QosServer");
     server.start();
@@ -21,11 +21,11 @@ int main(int argc, char **argv)
     return 0;
 }
 /**
-telnet 192.168.1.35 10086
+telnet 192.168.77.39 10086
 {"event": "login", "payload": {"name": "zhangsan", "pwd": "0", "platform": "myplatform"}}
 
 // mysql
-mysql -u sw -h 192.168.1.35 -p
+mysql -u sw -h 192.168.77.39 -p
 use db_file;
 SELECT * FROM file;
 DELETE FROM file;
