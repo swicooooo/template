@@ -34,7 +34,6 @@
 
 int filetransfer::sendPacket(int sockfd, enum OperType t, void *data, int datalen)
 {
-    // 构建数据包发送给客户端，分配新的DataPacket空间
     struct DataPacket *dp = (struct DataPacket*)new char[sizeof(struct DataPacket)+datalen];
     if(dp == NULL)
     {
